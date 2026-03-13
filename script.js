@@ -8,33 +8,31 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Smooth scroll for navigation links
-  const navLinks = document.querySelectorAll("nav ul li a");
+  // Smooth scroll with navbar offset
 
-  navLinks.forEach(link => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
+document.querySelectorAll("nav a").forEach(anchor => {
 
-      const targetId = this.getAttribute("href");
-      const targetSection = document.querySelector(targetId);
+anchor.addEventListener("click", function(e){
 
-      if (targetSection) {
-        const headerHeight = document.querySelector("header").offsetHeight;
-        const offsetPosition =
-          targetSection.getBoundingClientRect().top +
-          window.pageYOffset -
-          headerHeight - 20;
+e.preventDefault();
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth"
-        });
-      }
+const targetId = this.getAttribute("href");
+const targetSection = document.querySelector(targetId);
 
-      // Highlight active link
-      navLinks.forEach(link => link.classList.remove("active"));
-      this.classList.add("active");
-    });
-  });
+const navbarHeight = document.querySelector("nav").offsetHeight;
+
+const offsetPosition = targetSection.offsetTop - navbarHeight - 50;
+
+window.scrollTo({
+top: offsetPosition,
+behavior: "smooth"
+});
+
+});
+
+});
+
+    
 
   // Contact form submission (basic validation)
   const contactForm = document.querySelector('form');
