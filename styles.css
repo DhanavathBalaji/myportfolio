@@ -13,9 +13,10 @@ body {
 }
 
 .container {
-  max-width: auto;
+  max-width: 1100px;
   margin: auto;
   padding: 0 20px;
+  width: 100%;
 }
 
 /* ----------------------------- */
@@ -34,7 +35,8 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 15px 0;
-  max-width: auto;
+  width: 100%;
+
 }
 
 nav ul {
@@ -78,7 +80,7 @@ nav a.active {
   text-align: center;
   padding: 60px 20px 80px;
   background: linear-gradient(135deg, #1e293b, #0f172a);
-  max-width: auto;
+  
 }
 
 .hero h2 {
@@ -161,6 +163,7 @@ section {
   border-radius: 10px;
   margin-top: 20px;
   transition: 0.3s;
+  flex: 1 1 300px; 
 }
 
 .card:hover {
