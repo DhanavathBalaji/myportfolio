@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // Initialize animation library
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -241,4 +241,3 @@ document.addEventListener('DOMContentLoaded', () => {
 });
   
 
->>>>>>> 4d38e39af9d588ff4d4af9b0b29d8cf9299a5aa2
