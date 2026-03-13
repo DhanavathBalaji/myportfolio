@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-  max-width: 1100px;
+  max-width: auto;
   margin: auto;
   padding: 0 20px;
 }
@@ -34,6 +34,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 15px 0;
+  max-width: auto;
 }
 
 nav ul {
@@ -77,6 +78,7 @@ nav a.active {
   text-align: center;
   padding: 60px 20px 80px;
   background: linear-gradient(135deg, #1e293b, #0f172a);
+  max-width: auto;
 }
 
 .hero h2 {
@@ -164,6 +166,7 @@ section {
 .card:hover {
   transform: translateY(-8px);
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  max-width: auto;
 }
 
 .skills-grid {
