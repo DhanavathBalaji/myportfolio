@@ -1,6 +1,5 @@
-/* ----------------------------- */
 /* General Styles */
-/* ----------------------------- */
+
 html {
   scroll-behavior: smooth;
 }
@@ -19,9 +18,9 @@ body {
   
 }
 
-/* ----------------------------- */
+
 /* Header & Navigation */
-/* ----------------------------- */
+
 header {
   background: #020617;
   position: sticky;
@@ -218,6 +217,10 @@ section {
   gap: 20px;
   justify-content: start;
   align-items: center;
+}
+.contact-item {
+    margin: 6px 0;
+    font-size: 16px;
 }
 
 /* ----------------------------- */
