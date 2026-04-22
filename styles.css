@@ -219,24 +219,21 @@ section {
   align-items: center;
 }
 .contact-item {
-    margin: 6px 0;
+    color: rgba(255, 255, 255, 0.85); /* main text */
+    margin: 8px 0;
     font-size: 16px;
-    color: #333;
 }
 
 .contact-item a {
-    color: inherit;
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
 }
 
-.contact-item a:visited {
-    color: inherit;
+.contact-item a:hover {
+    color: #4dabf7; /* nice soft blue */
 }
 
-.contact-item a:hover {
-    color: ##ffffff;
-    text-decoration: underline;
-}
+
 /* ----------------------------- */
 /* Footer */
 /* ----------------------------- */
