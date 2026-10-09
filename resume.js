@@ -5,7 +5,7 @@ const resume = {
       company: "HCLTech",
       role: "Software Engineer (Technical Lead) | .NET Full Stack",
       location: "Hyderabad, India",
-      duration: "Oct 2023 – Jan 2026",
+      //duration: "Oct 2023 – present",
       projects: [
         {
           name: "Volvo Group — Rack Management Platform",
