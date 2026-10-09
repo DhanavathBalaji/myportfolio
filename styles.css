@@ -1805,7 +1805,8 @@ textarea:focus {
 .hero img,
 .hero-section img {
   max-width: 100%;
-  height: 500px;
+  height: 1200px; 
+  width: 600px;
 }
 
 /* Resume and projects buttons */
