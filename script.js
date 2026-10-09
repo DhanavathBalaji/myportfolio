@@ -33,59 +33,149 @@ behavior: "smooth"
 });
 
     
-const menuToggle = document.getElementById("menu-toggle");
-const navigation = document.getElementById("primary-navigation");
 
-if (menuToggle && navigation) {
-  const mobileQuery = window.matchMedia("(max-width: 760px)");
+(() => {
+  const root = document.documentElement;
 
-  function setMenu(open) {
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeIcon = document.getElementById("theme-icon");
+  const accentSelects = document.querySelectorAll(".accent-select");
+
+  const menuToggle = document.getElementById("menu-toggle");
+  const navigation = document.getElementById("primary-navigation");
+
+  const validModes = ["light", "dark"];
+  const validAccents = ["emerald", "violet"];
+
+  // Safe localStorage access.
+  function readPreference(key) {
+    try {
+      return localStorage.getItem(key);
+    } catch {
+      return null;
+    }
+  }
+
+  function savePreference(key, value) {
+    try {
+      localStorage.setItem(key, value);
+    } catch {
+      // Theme switching still works if storage is unavailable.
+    }
+  }
+
+  // Restore preferences, defaulting to Emerald Light.
+  let mode = validModes.includes(readPreference("portfolio-mode"))
+    ? readPreference("portfolio-mode")
+    : "light";
+
+  let accent = validAccents.includes(readPreference("portfolio-accent"))
+    ? readPreference("portfolio-accent")
+    : "emerald";
+
+  function applyTheme() {
+    root.dataset.mode = mode;
+    root.dataset.accent = accent;
+
+    if (themeIcon) {
+      themeIcon.textContent = mode === "dark" ? "☀" : "☾";
+    }
+
+    if (themeToggle) {
+      const label = mode === "dark"
+        ? "Switch to light mode"
+        : "Switch to dark mode";
+
+      themeToggle.setAttribute("aria-label", label);
+      themeToggle.setAttribute("title", label);
+    }
+
+    // Keep desktop and mobile selectors synchronized.
+    accentSelects.forEach(select => {
+      select.value = accent;
+    });
+  }
+
+  // Light / dark mode toggle.
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      mode = mode === "light" ? "dark" : "light";
+
+      savePreference("portfolio-mode", mode);
+      applyTheme();
+    });
+  }
+
+  // Emerald / violet accent selection.
+  accentSelects.forEach(select => {
+    select.addEventListener("change", () => {
+      if (validAccents.includes(select.value)) {
+        accent = select.value;
+
+        savePreference("portfolio-accent", accent);
+        applyTheme();
+      }
+    });
+  });
+
+  // Mobile navigation.
+  function setMenuOpen(open) {
+    if (!menuToggle || !navigation) return;
+
     navigation.classList.toggle("is-open", open);
     menuToggle.setAttribute("aria-expanded", String(open));
-
     menuToggle.setAttribute(
       "aria-label",
       open ? "Close navigation menu" : "Open navigation menu"
     );
   }
 
-  menuToggle.addEventListener("click", () => {
-    const isOpen =
-      menuToggle.getAttribute("aria-expanded") === "true";
+  if (menuToggle && navigation) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen =
+        menuToggle.getAttribute("aria-expanded") === "true";
 
-    setMenu(!isOpen);
-  });
-
-  // Close after selecting a section.
-  navigation.querySelectorAll(".nav-link").forEach(link => {
-    link.addEventListener("click", () => {
-      setMenu(false);
+      setMenuOpen(!isOpen);
     });
-  });
 
-  // Close when clicking outside the header.
-  document.addEventListener("click", event => {
-    if (
-      mobileQuery.matches &&
-      !event.target.closest(".site-header")
-    ) {
-      setMenu(false);
-    }
-  });
+    navigation.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener("click", () => {
+        setMenuOpen(false);
+      });
+    });
 
-  // Close using the Escape key.
-  document.addEventListener("keydown", event => {
-    if (event.key === "Escape") {
-      setMenu(false);
-      menuToggle.focus();
-    }
-  });
+    document.addEventListener("click", event => {
+      if (
+        !event.target.closest(".site-header") &&
+        menuToggle.getAttribute("aria-expanded") === "true"
+      ) {
+        setMenuOpen(false);
+      }
+    });
 
-  // Reset the menu when moving between mobile and desktop.
-  mobileQuery.addEventListener("change", () => {
-    setMenu(false);
-  });
-}
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        const wasOpen =
+          menuToggle.getAttribute("aria-expanded") === "true";
+
+        setMenuOpen(false);
+
+        if (wasOpen) {
+          menuToggle.focus();
+        }
+      }
+    });
+
+    // Close menu when returning to desktop width.
+    window.matchMedia("(min-width: 761px)")
+      .addEventListener("change", () => {
+        setMenuOpen(false);
+      });
+  }
+
+  // Initialize before displaying the page.
+  applyTheme();
+})();
 
   // Contact form submission (basic validation)
   const contactForm = document.querySelector('form');
