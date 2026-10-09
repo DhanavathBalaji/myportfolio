@@ -279,3 +279,49 @@ body::before {
 .hero h2 {
   animation: pulsate 2s ease-in-out infinite;
 }
+
+
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(14, 165, 233, 0.12);
+  border: 1px solid rgba(14, 165, 233, 0.25);
+  font-size: 0.85rem;
+}
+
+.skill-card h3 {
+  margin-bottom: 12px;
+}
+
+#experience-container .card,
+#projects-container .card {
+  margin-bottom: 20px;
+}
+
+#experience-container h4 {
+  margin: 18px 0 10px;
+}
+
+.experience-list li {
+  margin-bottom: 10px;
+  line-height: 1.65;
+}
+
+.tech-stack {
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
