@@ -1609,6 +1609,81 @@ textarea:focus {
 }
 
 
+/* ==============================
+   CONTACT SECTION — THEME FIX
+============================== */
+
+#contact {
+  background: var(--bg);
+  color: var(--text);
+}
+
+#contact h2,
+#contact h3,
+#contact h4,
+#contact p,
+#contact span,
+#contact label {
+  color: var(--text);
+}
+
+/* Contact details: phone, email, location */
+#contact a:not(.btn):not(.button) {
+  color: var(--accent);
+  overflow-wrap: anywhere;
+  transition: color var(--transition);
+}
+
+#contact a:not(.btn):not(.button):hover {
+  color: var(--accent-hover);
+}
+
+/* Contact cards / information containers */
+#contact .contact-card,
+#contact .contact-item,
+#contact .contact-info,
+#contact .contact-details {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+}
+
+/* Supporting text */
+#contact .muted,
+#contact .contact-description {
+  color: var(--muted);
+}
+
+/* Form fields */
+#contact input,
+#contact textarea,
+#contact select {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+#contact input::placeholder,
+#contact textarea::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
+/* Keep icons visible */
+#contact i,
+#contact svg {
+  color: var(--accent);
+}
+
+/* Preserve readable button text */
+#contact button,
+#contact .btn,
+#contact .button {
+  color: var(--accent-contrast);
+}
+
 
 
 /* CONTACT SECTION */
@@ -1770,6 +1845,118 @@ textarea:focus {
   background: var(--bg) !important;
   color: var(--text) !important;
 }
+
+```css
+/* ==============================
+   HOME / HERO LAYOUT FIX
+============================== */
+
+/* Keep hero content and image side by side */
+#home .hero-container,
+#home .hero-content-wrapper,
+#home .home-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(220px, 0.7fr);
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+}
+
+/* Prevent content from overflowing */
+#home .hero-content,
+#home .hero-text {
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Control profile image size */
+#home img {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  max-height: 360px;
+  height: auto;
+  object-fit: cover;
+  margin-inline: auto;
+  border-radius: 20px;
+}
+
+/* Keep heading and description visible */
+#home h1,
+#home h2,
+#home p {
+  color: var(--text);
+  overflow-wrap: break-word;
+}
+
+/* Keep both action buttons visible */
+#home .hero-buttons,
+#home .hero-actions,
+#home .button-group,
+#home .cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+#home .hero-buttons a,
+#home .hero-actions a,
+#home .button-group a,
+#home .cta-buttons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-height: 44px;
+  padding: 12px 20px;
+  text-decoration: none;
+}
+
+/* Tablet and mobile */
+@media (max-width: 768px) {
+  #home .hero-container,
+  #home .hero-content-wrapper,
+  #home .home-container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    text-align: center;
+  }
+
+  #home img {
+    max-width: 240px;
+    max-height: 260px;
+  }
+
+  #home .hero-buttons,
+  #home .hero-actions,
+  #home .button-group,
+  #home .cta-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  #home img {
+    max-width: 200px;
+    max-height: 220px;
+  }
+
+  #home .hero-buttons a,
+  #home .hero-actions a,
+  #home .button-group a,
+  #home .cta-buttons a {
+    padding: 11px 15px;
+    font-size: 14px;
+  }
+}
+```
 
 
 
