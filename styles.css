@@ -1800,14 +1800,24 @@ textarea:focus {
   color: var(--text);
 }
 
-/* Profile image */
+
+
+/* Vertical rectangular profile image */
 #home img,
 .hero img,
 .hero-section img {
+  width: 280px;
+  height: 380px;
   max-width: 100%;
-  height: 1200px; 
-  width: 600px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto 20px;
 }
+
+
+
 
 /* Resume and projects buttons */
 #home .btn,
