@@ -61,7 +61,7 @@ const resume = {
       company: "HCLTech",
       role: "Software Engineer (Technical Lead) | .NET Full Stack",
       location: "Hyderabad, India",
-      duration: "Oct 2023 – Jan 2026",
+    
 
       projects: [
         {
@@ -227,7 +227,7 @@ function renderExperience() {
         <h3>${job.company} — ${job.role}</h3>
 
         <p>
-          ${job.location} | ${job.duration}
+          ${job.location} 
         </p>
 
         ${job.projects.map(project => `
