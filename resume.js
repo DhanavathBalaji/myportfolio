@@ -1,5 +1,55 @@
 
 const resume = {
+  
+profile: {
+  name: "Dhanavath Balaji",
+
+  headline: "Software Engineer (.NET Full Stack)",
+  specialization: "Backend & Distributed Systems",
+
+  description:
+    "Building scalable APIs, cloud-native applications, and AI-powered backend solutions using .NET, Azure, React, and modern distributed technologies.",
+
+  resumeUrl:
+    "https://drive.google.com/drive/folders/1wVV3IW_x9gFIGVhrkGAjkL-8PosXFxx_",
+
+  aboutIntro: "🎓 IIT Guwahati Graduate",
+
+  aboutParagraphs: [
+    "I am a Software Engineer with 2.4+ years of professional experience at HCLTech, specializing in backend engineering, full-stack development, and scalable enterprise applications.",
+
+    "My experience includes building microservices-based production systems for Volvo Group, developing high-throughput REST APIs, optimizing SQL Server performance, and implementing secure cloud-native applications using Microsoft Azure.",
+
+    "I have also worked on the Cummins-Meritor Intelligence platform, integrating real-time machine telemetry, Python data pipelines, and GenAI technologies, including LLMs, RAG, vector databases, and agentic AI workflows for production intelligence and analytics."
+  ],
+
+  highlights: [
+    {
+      title: "Backend Engineering",
+      details: "C#, .NET 6/7, ASP.NET Core, REST APIs, EF Core"
+    },
+    {
+      title: "Distributed Systems",
+      details: "Microservices, Kafka, Redis, asynchronous processing"
+    },
+    {
+      title: "Full Stack Development",
+      details: "React.js, JavaScript, HTML, CSS, GraphQL"
+    },
+    {
+      title: "Cloud & Security",
+      details: "Azure App Service, JWT authentication, RBAC"
+    },
+    {
+      title: "AI Engineering",
+      details: "Python, GenAI, LLMs, RAG, vector databases"
+    },
+    {
+      title: "System Design",
+      details: "HLD, LLD, SOLID principles, SQL optimization"
+    }
+  ]
+},
   experience: [
     {
       company: "HCLTech",
@@ -134,3 +184,58 @@ document.getElementById("projects-container").innerHTML =
       </p>
     </div>
   `).join("");
+
+
+const profile = resume.profile;
+
+// Render Home section
+document.getElementById("hero-name").textContent =
+  profile.name;
+
+const heroTitle = document.getElementById("hero-title");
+heroTitle.replaceChildren();
+
+heroTitle.append(
+  document.createTextNode(profile.headline + " | ")
+);
+
+const specialization = document.createElement("span");
+specialization.textContent = profile.specialization;
+heroTitle.append(specialization);
+
+document.getElementById("hero-description").textContent =
+  profile.description;
+
+document.getElementById("resume-link").href =
+  profile.resumeUrl;
+
+
+// Render About introduction
+document.getElementById("about-intro").textContent =
+  profile.aboutIntro;
+
+
+// Render About paragraphs
+const aboutContent = document.getElementById("about-content");
+
+profile.aboutParagraphs.forEach(paragraph => {
+  const p = document.createElement("p");
+  p.textContent = paragraph;
+  aboutContent.appendChild(p);
+});
+
+
+// Render About highlights
+const aboutHighlights =
+  document.getElementById("about-highlights");
+
+profile.highlights.forEach(item => {
+  const li = document.createElement("li");
+  const title = document.createElement("b");
+
+  title.textContent = item.title + ": ";
+  li.appendChild(title);
+  li.appendChild(document.createTextNode(item.details));
+
+  aboutHighlights.appendChild(li);
+});
