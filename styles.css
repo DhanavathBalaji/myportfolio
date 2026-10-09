@@ -1610,194 +1610,166 @@ textarea:focus {
 
 
 
-/* ==============================
-   CONTACT SECTION — THEME FIX
-============================== */
 
+/* CONTACT SECTION */
 #contact {
-  background: var(--bg);
+  background: var(--bg) !important;
   color: var(--text);
+  padding: 76px 20px;
 }
 
-#contact h2,
-#contact h3,
-#contact h4,
-#contact p,
-#contact span,
-#contact label {
-  color: var(--text);
-}
-
-/* Contact details: phone, email, location */
-#contact a:not(.btn):not(.button) {
-  color: var(--accent);
-  overflow-wrap: anywhere;
-  transition: color var(--transition);
-}
-
-#contact a:not(.btn):not(.button):hover {
-  color: var(--accent-hover);
-}
-
-/* Contact cards / information containers */
+/* One unified contact card */
 #contact .contact-card,
-#contact .contact-item,
-#contact .contact-info,
-#contact .contact-details {
-  background: var(--surface);
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--card-shadow);
-}
-
-/* Supporting text */
-#contact .muted,
-#contact .contact-description {
-  color: var(--muted);
-}
-
-/* Form fields */
-#contact input,
-#contact textarea,
-#contact select {
-  background: var(--surface);
-  color: var(--text);
-  border: 1px solid var(--border);
-}
-
-#contact input::placeholder,
-#contact textarea::placeholder {
-  color: var(--muted);
-  opacity: 1;
-}
-
-/* Keep icons visible */
-#contact i,
-#contact svg {
-  color: var(--accent);
-}
-
-/* Preserve readable button text */
-#contact button,
-#contact .btn,
-#contact .button {
-  color: var(--accent-contrast);
-}
-
-
-/* ==============================
-   CONTACT CARDS — RESPONSIVE FIX
-============================== */
-
 #contact .contact-info,
 #contact .contact-details,
-#contact .contact-item,
-#contact .contact-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 10px;
-
-  width: 100%;
-  min-width: 0;
-  min-height: 150px;
-  padding: 22px;
-
-  background: var(--surface);
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--card-shadow);
-
-  overflow-wrap: anywhere;
-  transition: transform var(--transition),
-              border-color var(--transition),
-              box-shadow var(--transition);
-}
-
-#contact .contact-info:hover,
-#contact .contact-details:hover,
-#contact .contact-item:hover,
-#contact .contact-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--accent-border);
-}
-
-/* Contact icons */
-#contact .contact-info i,
-#contact .contact-details i,
-#contact .contact-item i,
-#contact .contact-card i {
-  font-size: 24px;
-  color: var(--accent);
-  margin-bottom: 4px;
-}
-
-/* Card headings */
-#contact .contact-info h3,
-#contact .contact-details h3,
-#contact .contact-item h3,
-#contact .contact-card h3 {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text);
-}
-
-/* Phone number, email and address */
-#contact .contact-info p,
-#contact .contact-details p,
-#contact .contact-item p,
-#contact .contact-card p {
-  margin: 0;
-  line-height: 1.7;
-  font-size: 14px;
-  color: var(--muted);
-}
-
-#contact .contact-info a,
-#contact .contact-details a,
-#contact .contact-item a,
-#contact .contact-card a {
-  color: var(--accent);
-  overflow-wrap: anywhere;
-  word-break: break-word;
-}
-
-/* Contact cards grid */
 #contact .contact-grid,
 #contact .contact-cards {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-  align-items: stretch;
+  background: var(--surface);
+  color: var(--text);
+  border: 0;
+  box-shadow: none;
 }
 
-/* Tablet */
-@media (max-width: 900px) {
-  #contact .contact-grid,
-  #contact .contact-cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+/* Style the wrapper as one card */
+#contact .contact-card,
+#contact .contact-info,
+#contact .contact-details {
+  max-width: 760px;
+  margin: 24px auto 0;
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--card-shadow);
 }
 
-/* Mobile */
+/* Keep all details together, not in separate cards */
+#contact .contact-grid,
+#contact .contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+}
+
+/* Remove individual card appearance */
+#contact .contact-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  min-height: auto;
+  margin: 0;
+  padding: 10px 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Text */
+#contact h2,
+#contact h3,
+#contact p,
+#contact span {
+  color: var(--text);
+}
+
+#contact a {
+  color: var(--accent);
+  overflow-wrap: anywhere;
+}
+
+#contact .contact-item i {
+  flex-shrink: 0;
+  color: var(--accent);
+  font-size: 22px;
+}
+
 @media (max-width: 600px) {
-  #contact .contact-grid,
-  #contact .contact-cards {
-    grid-template-columns: 1fr;
-    gap: 14px;
+  #contact {
+    padding: 48px 16px;
   }
 
+  #contact .contact-card,
   #contact .contact-info,
-  #contact .contact-details,
-  #contact .contact-item,
-  #contact .contact-card {
-    min-height: auto;
-    padding: 18px;
+  #contact .contact-details {
+    padding: 20px;
+    border-radius: 16px;
   }
+} 
+
+
+
+/* HOME / HERO — LIGHT AND DARK THEME FIX */
+#home,
+.hero,
+.hero-section,
+.home-section {
+  background: var(--bg) !important;
+  color: var(--text) !important;
 }
+
+/* Hero content and text */
+#home h1,
+#home h2,
+#home h3,
+#home p,
+#home .hero-title,
+#home .hero-subtitle,
+#home .hero-content,
+.hero h1,
+.hero p,
+.hero-section h1,
+.hero-section p {
+  color: var(--text);
+}
+
+/* Profile image */
+#home img,
+.hero img,
+.hero-section img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Resume and projects buttons */
+#home .btn,
+#home .button,
+#home a.btn,
+.hero .btn,
+.hero-section .btn {
+  transition: background var(--transition),
+              color var(--transition),
+              transform var(--transition);
+}
+
+/* Avoid dark backgrounds on common hero wrappers */
+#home .container,
+#home .hero-content,
+#home .hero-text,
+.hero .container,
+.hero-section .container {
+  background-color: transparent;
+}
+
+/* Light theme: remove hardcoded dark hero surfaces */
+:root[data-mode="light"] #home,
+:root[data-mode="light"] .hero,
+:root[data-mode="light"] .hero-section,
+:root[data-mode="light"] .home-section {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+/* Dark theme keeps the dark appearance */
+:root[data-mode="dark"] #home,
+:root[data-mode="dark"] .hero,
+:root[data-mode="dark"] .hero-section,
+:root[data-mode="dark"] .home-section {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
 
 
