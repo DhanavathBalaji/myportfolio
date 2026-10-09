@@ -5,7 +5,6 @@ const resume = {
       company: "HCLTech",
       role: "Software Engineer (Technical Lead) | .NET Full Stack",
       location: "Hyderabad, India",
-      //duration: "Oct 2023 – present",
       projects: [
         {
           name: "Volvo Group — Rack Management Platform",
@@ -91,7 +90,6 @@ document.getElementById("experience-container").innerHTML =
     <div class="card">
       <h3>${job.company} — ${job.role}</h3>
       <p>${job.location} 
-    //  | ${job.duration}
       </p>
 
       ${job.projects.map(project => `
