@@ -90,7 +90,9 @@ document.getElementById("experience-container").innerHTML =
   resume.experience.map(job => `
     <div class="card">
       <h3>${job.company} — ${job.role}</h3>
-      <p>${job.location} | ${job.duration}</p>
+      <p>${job.location} 
+    //  | ${job.duration}
+      </p>
 
       ${job.projects.map(project => `
         <h4>${project.name}</h4>
