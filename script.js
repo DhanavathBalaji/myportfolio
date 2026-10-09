@@ -33,6 +33,59 @@ behavior: "smooth"
 });
 
     
+const menuToggle = document.getElementById("menu-toggle");
+const navigation = document.getElementById("primary-navigation");
+
+if (menuToggle && navigation) {
+  const mobileQuery = window.matchMedia("(max-width: 760px)");
+
+  function setMenu(open) {
+    navigation.classList.toggle("is-open", open);
+    menuToggle.setAttribute("aria-expanded", String(open));
+
+    menuToggle.setAttribute(
+      "aria-label",
+      open ? "Close navigation menu" : "Open navigation menu"
+    );
+  }
+
+  menuToggle.addEventListener("click", () => {
+    const isOpen =
+      menuToggle.getAttribute("aria-expanded") === "true";
+
+    setMenu(!isOpen);
+  });
+
+  // Close after selecting a section.
+  navigation.querySelectorAll(".nav-link").forEach(link => {
+    link.addEventListener("click", () => {
+      setMenu(false);
+    });
+  });
+
+  // Close when clicking outside the header.
+  document.addEventListener("click", event => {
+    if (
+      mobileQuery.matches &&
+      !event.target.closest(".site-header")
+    ) {
+      setMenu(false);
+    }
+  });
+
+  // Close using the Escape key.
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      setMenu(false);
+      menuToggle.focus();
+    }
+  });
+
+  // Reset the menu when moving between mobile and desktop.
+  mobileQuery.addEventListener("change", () => {
+    setMenu(false);
+  });
+}
 
   // Contact form submission (basic validation)
   const contactForm = document.querySelector('form');
