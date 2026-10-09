@@ -14,37 +14,70 @@
 
 <!-- Header & Navigation -->
 
+
 <header class="site-header">
   <div class="nav-container">
 
     <a href="#home" class="brand" aria-label="Go to home">
       <span class="brand-mark">B</span>
-      <span class="brand-name">Balaji Dhanavath<span class="brand-dot">.</span></span>
+      <span class="brand-name">Balaji<span class="brand-dot">.</span></span>
     </a>
-
-    <button
-      class="menu-toggle"
-      id="menu-toggle"
-      type="button"
-      aria-label="Open navigation menu"
-      aria-controls="primary-navigation"
-      aria-expanded="false"
-    >
-      <span class="menu-line"></span>
-      <span class="menu-line"></span>
-      <span class="menu-line"></span>
-    </button>
 
     <nav class="navigation" id="primary-navigation"
          aria-label="Main navigation">
+
       <a href="#home" class="nav-link">Home</a>
       <a href="#about" class="nav-link">About</a>
-      <a href="#experience" class="nav-link">Experience</a>
       <a href="#skills" class="nav-link">Skills</a>
+      <a href="#experience" class="nav-link">Experience</a>
       <a href="#projects" class="nav-link">Projects</a>
       <a href="#contact" class="nav-link nav-contact">Contact</a>
+
+      <!-- Theme selector inside mobile menu -->
+      <div class="mobile-theme-controls">
+        <label for="accent-mobile">Accent color</label>
+        <select id="accent-mobile" class="accent-select">
+          <option value="emerald">Emerald Green</option>
+          <option value="violet">Violet</option>
+        </select>
+      </div>
     </nav>
 
+    <div class="header-actions">
+
+      <!-- Desktop accent selector -->
+      <select id="accent-desktop" class="accent-select"
+              aria-label="Choose accent color">
+        <option value="emerald">Emerald</option>
+        <option value="violet">Violet</option>
+      </select>
+
+      <!-- Light / Dark toggle -->
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Switch to dark mode"
+        title="Switch theme mode"
+      >
+        <span id="theme-icon" aria-hidden="true">☾</span>
+      </button>
+
+      <!-- Mobile menu button -->
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-controls="primary-navigation"
+        aria-expanded="false"
+      >
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+      </button>
+
+    </div>
   </div>
 </header>
 
