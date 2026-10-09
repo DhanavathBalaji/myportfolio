@@ -1686,3 +1686,118 @@ textarea:focus {
 }
 
 
+/* ==============================
+   CONTACT CARDS — RESPONSIVE FIX
+============================== */
+
+#contact .contact-info,
+#contact .contact-details,
+#contact .contact-item,
+#contact .contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 150px;
+  padding: 22px;
+
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+
+  overflow-wrap: anywhere;
+  transition: transform var(--transition),
+              border-color var(--transition),
+              box-shadow var(--transition);
+}
+
+#contact .contact-info:hover,
+#contact .contact-details:hover,
+#contact .contact-item:hover,
+#contact .contact-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-border);
+}
+
+/* Contact icons */
+#contact .contact-info i,
+#contact .contact-details i,
+#contact .contact-item i,
+#contact .contact-card i {
+  font-size: 24px;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+/* Card headings */
+#contact .contact-info h3,
+#contact .contact-details h3,
+#contact .contact-item h3,
+#contact .contact-card h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Phone number, email and address */
+#contact .contact-info p,
+#contact .contact-details p,
+#contact .contact-item p,
+#contact .contact-card p {
+  margin: 0;
+  line-height: 1.7;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+#contact .contact-info a,
+#contact .contact-details a,
+#contact .contact-item a,
+#contact .contact-card a {
+  color: var(--accent);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Contact cards grid */
+#contact .contact-grid,
+#contact .contact-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  #contact .contact-grid,
+  #contact .contact-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  #contact .contact-grid,
+  #contact .contact-cards {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  #contact .contact-info,
+  #contact .contact-details,
+  #contact .contact-item,
+  #contact .contact-card {
+    min-height: auto;
+    padding: 18px;
+  }
+}
+
+
