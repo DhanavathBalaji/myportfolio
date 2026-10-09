@@ -1607,3 +1607,82 @@ textarea:focus {
     animation-iteration-count: 1 !important;
   }
 }
+
+
+
+/* ==============================
+   CONTACT SECTION — THEME FIX
+============================== */
+
+#contact {
+  background: var(--bg);
+  color: var(--text);
+}
+
+#contact h2,
+#contact h3,
+#contact h4,
+#contact p,
+#contact span,
+#contact label {
+  color: var(--text);
+}
+
+/* Contact details: phone, email, location */
+#contact a:not(.btn):not(.button) {
+  color: var(--accent);
+  overflow-wrap: anywhere;
+  transition: color var(--transition);
+}
+
+#contact a:not(.btn):not(.button):hover {
+  color: var(--accent-hover);
+}
+
+/* Contact cards / information containers */
+#contact .contact-card,
+#contact .contact-item,
+#contact .contact-info,
+#contact .contact-details {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+}
+
+/* Supporting text */
+#contact .muted,
+#contact .contact-description {
+  color: var(--muted);
+}
+
+/* Form fields */
+#contact input,
+#contact textarea,
+#contact select {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+#contact input::placeholder,
+#contact textarea::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
+/* Keep icons visible */
+#contact i,
+#contact svg {
+  color: var(--accent);
+}
+
+/* Preserve readable button text */
+#contact button,
+#contact .btn,
+#contact .button {
+  color: var(--accent-contrast);
+}
+
+
